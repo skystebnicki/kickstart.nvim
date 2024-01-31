@@ -82,6 +82,28 @@ return {
     dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
     -- Install golang specific config
-    require('dap-go').setup()
+    require('dap-go').setup {
+      dap_configurations = {
+        {
+          type = "go",
+          name = "Docker Remote",
+          mode = "remote",
+          request = "attach",
+        },
+      },
+      delve = {
+        -- port = "${port}",
+        port = "38697",
+        -- additional args to pass to dlv
+        args = {},
+        -- the build flags that are passed to delve.
+        -- defaults to empty string, but can be used to provide flags
+        -- such as "-tags=unit" to make sure the test suite is
+        -- compiled during debugging, for example.
+        -- passing build flags using args is ineffective, as those are
+        -- ignored by delve in dap mode.
+        build_flags = "",
+      },
+    }
   end,
 }
