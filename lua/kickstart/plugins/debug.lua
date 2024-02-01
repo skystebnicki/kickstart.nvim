@@ -89,11 +89,15 @@ return {
           name = "Docker Remote",
           mode = "remote",
           request = "attach",
+          connect = {
+            host = "127.0.0.1",
+            port = "2345"
+          }
         },
       },
       delve = {
         -- port = "${port}",
-        port = "38697",
+        port = "2345",
         -- additional args to pass to dlv
         args = {},
         -- the build flags that are passed to delve.
