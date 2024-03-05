@@ -13,6 +13,18 @@ return {
     "MunifTanjim/nui.nvim",
   },
   config = function()
-    require('neo-tree').setup {}
+    require('neo-tree').setup {
+      filesystem = {
+        filtered_items = {
+          visible = true,
+          hide_dotfiles = false,
+          hide_gitignored = false,
+          hide_hidden = false, -- only works on Windows for hidden files/directories
+          always_show = {      -- remains visible even if other settings would normally hide it
+            ".gitignored",
+          },
+        },
+      }
+    }
   end,
 }
