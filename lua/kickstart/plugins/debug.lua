@@ -86,14 +86,31 @@ return {
       dap_configurations = {
         {
           type = "go",
-          name = "Docker Remote",
-          mode = "remote",
-          request = "attach",
+          name = "Docker Debug",
+          request = "launch",
+          path = "docker compose run debug",
+          -- CMD ["debug", "./cmd/server", "--headless", "--log", "-l", "0.0.0.0:2345", "--api-version=2", "--continue", "--accept-multiclient"]
+          args = { "dap", "-l", "0.0.0.0:2345" },
+          program = "${file}",
           connect = {
             host = "127.0.0.1",
             port = "2345"
           }
         },
+        {
+          type = "go",
+          name = "Docker Debug Test",
+          request = "launch",
+          mode = "test",
+          path = "docker compose run debug",
+          -- CMD ["debug", "./cmd/server", "--headless", "--log", "-l", "0.0.0.0:2345", "--api-version=2", "--continue", "--accept-multiclient"]
+          args = { "dap", "-l", "0.0.0.0:2345" },
+          program = "${file}",
+          connect = {
+            host = "127.0.0.1",
+            port = "2345"
+          }
+        }
       },
       delve = {
         -- port = "${port}",
