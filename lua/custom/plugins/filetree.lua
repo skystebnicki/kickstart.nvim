@@ -14,6 +14,11 @@ return {
   config = function()
     require('neo-tree').setup {
       filesystem = {
+        use_libuv_file_watcher = true,
+        ollow_current_file = {
+          enabled = true,
+          leave_dirs_open = false, -- `false` closes auto expanded dirs
+        },
         filtered_items = {
           visible = true,
           hide_dotfiles = false,
