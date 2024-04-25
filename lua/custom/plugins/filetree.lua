@@ -38,10 +38,6 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-
--- vim.keymap.set('n', '<E>', '<Cmd>NvimTreeToggle<CR>', { desc = '[T]ree' })
-vim.keymap.set('n', '<leader>e', '<Cmd>NvimTreeToggle<CR>', { desc = '[T]ree' })
-
 return {
   "nvim-tree/nvim-tree.lua",
   version = "*",
