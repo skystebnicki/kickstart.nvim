@@ -116,8 +116,8 @@ return {
         }
       },
       delve = {
-        -- port = "${port}",
-        port = "2345",
+        port = "${port}",
+        -- port = "2345",
         -- additional args to pass to dlv
         args = {},
         -- the build flags that are passed to delve.
