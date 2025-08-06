@@ -20,6 +20,12 @@ return {
           ['\\'] = 'close_window',
         },
       },
+      filtered_items = {
+        visible = true,
+      },
+      follow_current_file = {
+        enabled = true,
+      },
     },
   },
 }
