@@ -1,4 +1,5 @@
 require 'sky.remap'
+require 'sky.neo-tree'
 require 'sky.transparency'
 require 'sky.autocomplete'
 require 'sky.tmux-navigator'
