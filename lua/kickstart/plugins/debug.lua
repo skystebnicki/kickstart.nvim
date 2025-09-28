@@ -22,7 +22,7 @@ return {
     'jay-babu/mason-nvim-dap.nvim',
 
     -- Add your own debuggers here
-    'leoluz/nvim-dap-go',
+    'skystebnicki/nvim-dap-go',
   },
   config = function()
     local dap = require 'dap'
@@ -88,45 +88,28 @@ return {
     require('dap-go').setup {
       dap_configurations = {
         {
-          type = "go",
-          name = "Docker Debug",
-          request = "launch",
-          path = "docker compose run debug",
-          -- CMD ["debug", "./cmd/server", "--headless", "--log", "-l", "0.0.0.0:2345", "--api-version=2", "--continue", "--accept-multiclient"]
-          args = { "dap", "-l", "0.0.0.0:2345" },
-          program = "${file}",
-          connect = {
-            host = "127.0.0.1",
-            port = "2345"
-          }
+          type = 'go',
+          name = 'Docker Debug',
+          request = 'launch',
+          path = 'docker',
+          args = { 'compose', 'run', '-p', '2345:2345', 'debug', 'dap', '-l', '0.0.0.0:2345', '--log' },
+          port = 2345,
+          program = '${file}',
         },
         {
-          type = "go",
-          name = "Docker Debug Test",
-          request = "launch",
-          mode = "test",
-          path = "docker compose run debug",
-          -- CMD ["debug", "./cmd/server", "--headless", "--log", "-l", "0.0.0.0:2345", "--api-version=2", "--continue", "--accept-multiclient"]
-          args = { "dap", "-l", "0.0.0.0:2345" },
-          program = "${file}",
-          connect = {
-            host = "127.0.0.1",
-            port = "2345"
-          }
-        }
+          type = 'go',
+          name = 'Docker Debug Test',
+          request = 'launch',
+          mode = 'test',
+          path = 'docker',
+          args = { 'compose', 'run', '-p', '2345:2345', 'debug', 'dap', '-l', '0.0.0.0:2345', '--log' },
+          port = 2345,
+          program = '${file}',
+        },
       },
       delve = {
-        port = "${port}",
-        -- port = "2345",
-        -- additional args to pass to dlv
-        args = {},
-        -- the build flags that are passed to delve.
-        -- defaults to empty string, but can be used to provide flags
-        -- such as "-tags=unit" to make sure the test suite is
-        -- compiled during debugging, for example.
-        -- passing build flags using args is ineffective, as those are
-        -- ignored by delve in dap mode.
-        build_flags = "",
+        -- extend from 20 to 90 since we are using docker
+        initialize_timeout_sec = 90,
       },
     }
   end,
