@@ -8,3 +8,4 @@ require 'sky.gitsigns'
 require 'sky.transparency'
 require 'sky.autocomplete'
 require 'sky.tmux-navigator'
+
