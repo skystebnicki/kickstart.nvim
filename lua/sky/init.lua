@@ -1,4 +1,4 @@
-require 'sky.remap'
+require 'sky.tmuxnavigator'
 require 'sky.debug'
 require 'sky.indent_line'
 require 'sky.lint'
@@ -7,5 +7,4 @@ require 'sky.neo-tree'
 require 'sky.gitsigns'
 require 'sky.transparency'
 require 'sky.autocomplete'
-require 'sky.tmux-navigator'
-
+require 'sky.remap'

@@ -9,6 +9,7 @@ return {
   lazy = false,
   keys = {
     { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+    { '<C-E>', ':Neotree reveal<CR>', desc = '[T]ree', silent = true },
   },
   opts = {
     filesystem = {
