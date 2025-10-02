@@ -1,0 +1,8 @@
+require 'sky.tmuxnavigator'
+require 'sky.debug'
+require 'sky.indent_line'
+require 'sky.lint'
+require 'sky.autopairs'
+require 'sky.neotree'
+require 'sky.gitsigns'
+require 'sky.autocomplete'
