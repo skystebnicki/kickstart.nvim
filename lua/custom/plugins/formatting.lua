@@ -16,7 +16,6 @@ return {
         json = { 'prettier' },
         yaml = { 'prettier' },
         markdown = { 'prettier' },
-        xml = { 'prettier' },
         graphql = { 'prettier' },
         lua = { 'stylua' },
       },
