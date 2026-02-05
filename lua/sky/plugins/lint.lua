@@ -9,6 +9,14 @@ return {
         markdown = { 'markdownlint' },
       }
 
+      -- Disable MD013 (line length) since we don't enforce line length in markdown.
+      -- The trailing '--' separates options from filenames.
+      lint.linters.markdownlint.args = {
+        '--disable',
+        'MD013',
+        '--',
+      }
+
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
       -- instead set linters_by_ft like this:
       -- lint.linters_by_ft = lint.linters_by_ft or {}
